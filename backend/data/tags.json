@@ -5,11 +5,6 @@
         "slug": "breakfast"
     },
     {
-        "name": "Полдник",
-        "color": "#FFC107",
-        "slug": "snack"
-    },
-    {
         "name": "Обед",
         "color": "#4CAF50",
         "slug": "lunch"
@@ -23,55 +18,5 @@
         "name": "Десерт",
         "color": "#E91E63",
         "slug": "dessert"
-    },
-    {
-        "name": "Напитки",
-        "color": "#00BCD4",
-        "slug": "drinks"
-    },
-    {
-        "name": "Супы",
-        "color": "#795548",
-        "slug": "soups"
-    },
-    {
-        "name": "Салаты",
-        "color": "#8BC34A",
-        "slug": "salads"
-    },
-    {
-        "name": "Закуски",
-        "color": "#FF9800",
-        "slug": "appetizers"
-    },
-    {
-        "name": "Выпечка",
-        "color": "#9C27B0",
-        "slug": "baking"
-    },
-    {
-        "name": "Соусы",
-        "color": "#607D8B",
-        "slug": "sauces"
-    },
-    {
-        "name": "Морепродукты",
-        "color": "#03A9F4",
-        "slug": "seafood"
-    },
-    {
-        "name": "Мясные блюда",
-        "color": "#F44336",
-        "slug": "meat"
-    },
-    {
-        "name": "Вегетарианское",
-        "color": "#4CAF50",
-        "slug": "vegetarian"
-    },
-    {
-        "name": "Фастфуд",
-        "color": "#FFEB3B",
-        "slug": "fastfood"
     }
 ]
