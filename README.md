@@ -14,7 +14,7 @@
 - Клонировать репозиторий foodgram-project-react
 - Перейти в директорию infra
 ```
-cd foodgram-project-react/infra
+cd foodgram/infra
 ```
 - В папке infra выполните команду 
 ```

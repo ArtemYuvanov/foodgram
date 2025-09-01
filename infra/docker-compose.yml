@@ -7,7 +7,7 @@ volumes:
 
 services:
   db:
-    image: postgres:13
+    image: postgres:13.10
     restart: always
     volumes:
       - pg_data:/var/lib/postgresql/data
@@ -23,14 +23,17 @@ services:
     volumes:
       - static:/app/static/
       - media:/app/media/
+    
 
   frontend:
+    container_name: foodgram-front
     image: batiskaf24/foodgram_frontend
     volumes:
       - ../frontend/:/app/result_build/
       
   nginx:
-    image: nginx:1.19.3
+    container_name: foodgram-proxy
+    image: nginx:1.25.4-alpine
     restart: always
     ports:
       - 9000:80

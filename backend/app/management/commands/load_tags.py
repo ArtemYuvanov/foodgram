@@ -2,6 +2,7 @@ import json
 from django.core.management.base import BaseCommand
 from app.models import Tag
 
+
 class Command(BaseCommand):
     help = 'Load tags from JSON file'
 
