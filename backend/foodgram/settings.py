@@ -64,14 +64,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'foodgram.wsgi.application'
 
 
-# if os.getenv('USE_SQLITE'):
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-#     }
-# else:
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
@@ -148,6 +140,6 @@ DJOSER = {
 }
 
 AUTHENTICATION_BACKENDS = [
-    'users.backends.EmailBackend',  # кастомный backend
-    'django.contrib.auth.backends.ModelBackend',  # стандартный на всякий случай
+    'users.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
