@@ -105,4 +105,4 @@ jobs:
         with:
           to: $TELEGRAM_TO
           token: $TELEGRAM_TOKEN
-          message: Деплой успешно выполнен на сервере!
+          message: Деплой успешно выполнен на сервере!!
