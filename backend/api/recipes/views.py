@@ -9,23 +9,13 @@ from rest_framework.response import Response
 
 from api.recipes.filters import IngredientFilter, RecipeFilter
 from api.recipes.permissions import IsAdminAuthorOrReadOnly
-from api.recipes.serializers import (
-    FavoriteSerializer,
-    IngredientSerializer,
-    RecipeCreateSerializer,
-    RecipeGetSerializer,
-    ShoppingCartSerializer,
-    TagSerializer,
-)
+from api.recipes.serializers import (FavoriteSerializer, IngredientSerializer,
+                                     RecipeCreateSerializer,
+                                     RecipeGetSerializer,
+                                     ShoppingCartSerializer, TagSerializer)
 from api.utils import create_model_instance, delete_model_instance
-from recipes.models import (
-    Favorite,
-    Ingredient,
-    IngredientInRecipe,
-    Recipe,
-    ShoppingCart,
-    Tag,
-)
+from recipes.models import (Favorite, Ingredient, IngredientInRecipe, Recipe,
+                            ShoppingCart, Tag)
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):

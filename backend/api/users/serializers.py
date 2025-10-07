@@ -5,7 +5,6 @@ from rest_framework.validators import UniqueTogetherValidator
 from api.utils import Base64ImageField
 from users.models import Follow
 
-
 User = get_user_model()
 
 
