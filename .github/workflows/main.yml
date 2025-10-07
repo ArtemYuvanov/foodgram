@@ -56,14 +56,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push backend image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v4
         with:
           context: ./backend
           push: true
           tags: batiskaf24/foodgram_backend:latest
 
       - name: Build and push frontend image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v4
         with:
           context: ./frontend
           push: true
@@ -75,7 +75,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy on remote server
-        uses: appleboy/ssh-action@v1
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
@@ -94,7 +94,7 @@ jobs:
     needs: deploy
     steps:
       - name: Notify in Telegram
-        uses: appleboy/telegram-action@v1
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
