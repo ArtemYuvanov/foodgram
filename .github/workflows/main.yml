@@ -77,10 +77,10 @@ jobs:
       - name: Deploy on remote server
         uses: appleboy/ssh-action@master
         with:
-          host: $${{ secrets.HOST }}
-          username: $${{ secrets.USER }}
-          key: $${{ secrets.SSH_KEY }}
-          passphrase: $${{ secrets.SSH_PASSPHRASE }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             cd foodgram
             sudo docker compose pull
@@ -96,6 +96,6 @@ jobs:
       - name: Notify in Telegram
         uses: appleboy/telegram-action@master
         with:
-          to: $${{ secrets.TELEGRAM_TO }}
-          token: $${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
           message: Деплой успешно выполнен на сервере!
