@@ -174,7 +174,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy on remote server via SSH
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
