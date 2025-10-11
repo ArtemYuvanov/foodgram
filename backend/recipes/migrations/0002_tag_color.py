@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0001_initial'),
+        ("recipes", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='tag',
-            name='color',
-            field=models.CharField(default='#FFFFFF', max_length=7),
+            model_name="tag",
+            name="color",
+            field=models.CharField(default="#FFFFFF", max_length=7),
         ),
     ]

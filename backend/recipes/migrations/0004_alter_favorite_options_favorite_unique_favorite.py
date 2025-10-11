@@ -6,16 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0003_alter_shoppingcart_unique_together_and_more'),
+        ("recipes", "0003_alter_shoppingcart_unique_together_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='favorite',
-            options={'ordering': ['-id'], 'verbose_name': 'Избранное', 'verbose_name_plural': 'Избранное'},
+            name="favorite",
+            options={
+                "ordering": ["-id"],
+                "verbose_name": "Избранное",
+                "verbose_name_plural": "Избранное",
+            },
         ),
         migrations.AddConstraint(
-            model_name='favorite',
-            constraint=models.UniqueConstraint(fields=('user', 'recipe'), name='unique_favorite'),
+            model_name="favorite",
+            constraint=models.UniqueConstraint(
+                fields=("user", "recipe"), name="unique_favorite"
+            ),
         ),
     ]

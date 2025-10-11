@@ -10,6 +10,7 @@ from rest_framework.response import Response
 class Base64ImageField(serializers.ImageField):
     """
     Поле для приёма изображения, закодированного в base64.
+
     Конвертирует строку 'data:image/png;base64,...' в Django ContentFile.
     """
 
@@ -51,22 +52,26 @@ class Base64ImageField(serializers.ImageField):
 
 
 def create_model_instance(request, recipe, serializer_class):
-    """Добавление в favorite или shopping_cart"""
+    """Добавление в favorite или shopping_cart."""
     serializer = serializer_class(
-        data={"user": request.user.id, "recipe": recipe.id},
+        data={"recipe": recipe.id},
         context={"request": request},
     )
     serializer.is_valid(raise_exception=True)
-    serializer.save()
+    serializer.save(user=request.user)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 def delete_model_instance(request, model_class, recipe, error_message):
-    """Удаление из favorite или shopping_cart"""
-    instance = model_class.objects.filter(user=request.user, recipe=recipe)
-    if not instance.exists():
+    """Удаление из favorite или shopping_cart."""
+    deleted_count, _ = model_class.objects.filter(
+        user=request.user, recipe=recipe
+    ).delete()
+
+    if deleted_count == 0:
         return Response(
-            {"errors": error_message}, status=status.HTTP_400_BAD_REQUEST
+            {"detail": error_message},
+            status=status.HTTP_400_BAD_REQUEST,
         )
-    instance.delete()
+
     return Response(status=status.HTTP_204_NO_CONTENT)

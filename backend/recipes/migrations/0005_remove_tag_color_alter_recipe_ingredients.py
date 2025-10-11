@@ -6,17 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0004_alter_favorite_options_favorite_unique_favorite'),
+        ("recipes", "0004_alter_favorite_options_favorite_unique_favorite"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='tag',
-            name='color',
+            model_name="tag",
+            name="color",
         ),
         migrations.AlterField(
-            model_name='recipe',
-            name='ingredients',
-            field=models.ManyToManyField(related_name='recipes', through='recipes.IngredientInRecipe', to='recipes.ingredient', verbose_name='Список ингредиентов'),
+            model_name="recipe",
+            name="ingredients",
+            field=models.ManyToManyField(
+                related_name="recipes",
+                through="recipes.IngredientInRecipe",
+                to="recipes.ingredient",
+                verbose_name="Список ингредиентов",
+            ),
         ),
     ]
