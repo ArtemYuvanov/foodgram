@@ -52,13 +52,13 @@ class Base64ImageField(serializers.ImageField):
 
 
 def create_model_instance(request, recipe, serializer_class):
-    """Добавление в favorite или shopping_cart."""
+    """Добавление в favorite или shopping_cart"""
     serializer = serializer_class(
-        data={"recipe": recipe.id},
+        data={"user": request.user.id, "recipe": recipe.id},
         context={"request": request},
     )
     serializer.is_valid(raise_exception=True)
-    serializer.save(user=request.user)
+    serializer.save()
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
@@ -67,11 +67,9 @@ def delete_model_instance(request, model_class, recipe, error_message):
     deleted_count, _ = model_class.objects.filter(
         user=request.user, recipe=recipe
     ).delete()
-
     if deleted_count == 0:
         return Response(
             {"detail": error_message},
             status=status.HTTP_400_BAD_REQUEST,
         )
-
     return Response(status=status.HTTP_204_NO_CONTENT)

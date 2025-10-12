@@ -13,6 +13,7 @@ services:
 
   backend:
     image: batiskaf24/foodgram_backend
+    build: ../backend
     volumes:
       - static:/app/static/
       - media:/app/media/
@@ -22,8 +23,8 @@ services:
       - ./.env
 
   frontend:
-    container_name: foodgram-front
     image: batiskaf24/foodgram_frontend
+    build: ../frontend
     volumes:
       - ../frontend/:/app/result_build/
 

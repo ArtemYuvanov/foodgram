@@ -205,20 +205,24 @@ class RecipeCreateSerializer(serializers.ModelSerializer):
         return super().update(instance, validated_data)
 
     def to_representation(self, instance):
-        """Возвращает сериализованный объект рецепта для чтения."""
         request = self.context.get("request")
+        if not hasattr(instance, "is_favorited"):
+            instance.is_favorited = False
+        if not hasattr(instance, "is_in_shopping_cart"):
+            instance.is_in_shopping_cart = False
+
         return RecipeGetSerializer(instance, context={"request": request}).data
 
 
 class BaseFavoriteCartSerializer(serializers.ModelSerializer):
     """Базовый сериализатор для избранного и корзины."""
 
+    recipe = serializers.PrimaryKeyRelatedField(
+        queryset=Recipe.objects.all()
+    )
+
     class Meta:
-        fields = ("user", "recipe")
-        extra_kwargs = {
-            "user": {"read_only": True},
-            "recipe": {"read_only": False},
-        }
+        fields = ("recipe", "user")
 
     def to_representation(self, instance):
         request = self.context.get("request")

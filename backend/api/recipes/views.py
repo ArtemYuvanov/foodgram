@@ -1,4 +1,4 @@
-from django.db.models import Exists, OuterRef, Sum
+from django.db.models import BooleanField, Exists, OuterRef, Sum, Value
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
@@ -81,8 +81,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
             )
         else:
             queryset = queryset.annotate(
-                is_favorited=False,
-                is_in_shopping_cart=False
+                is_favorited=Value(False, output_field=BooleanField()),
+                is_in_shopping_cart=Value(False, output_field=BooleanField())
             )
         return queryset
 
@@ -130,7 +130,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         """Генерация текста списка покупок для пользователя."""
         ingredients = (
             IngredientInRecipe.objects.filter(
-                recipe__in_shopping_carts__user=user
+                recipe__in_shoppingcarts__user=user
             )
             .values("ingredient__name", "ingredient__measurement_unit")
             .annotate(total_amount=Sum("amount"))
