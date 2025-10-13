@@ -60,7 +60,7 @@ pip  install  -r  requirements.txt
 4. Настройте базу данных:
 ```bash
 python  manage.py  migrate
-python  manage.py  loaddata  ingredients  # загрузка ингредиентов
+python  manage.py  loaddata  ingredients
 ```
 
 5. Создайте суперпользователя:
