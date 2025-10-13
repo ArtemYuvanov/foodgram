@@ -236,7 +236,3 @@ DOCKER_USERNAME=your-dockerhub-username
 ## Автор
 
 - Артем Юванов - [GitHub](https://github.com/ArtemYuvanov)
-
----
-
-*Проект завершен и готов к использованию! 🎉*
