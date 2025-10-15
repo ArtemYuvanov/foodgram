@@ -106,6 +106,7 @@ docker-compose  exec  backend  python  manage.py  createsuperuser
 Приложение будет доступно по адресу: http://localhost
 
 IP сервера: 51.250.109.26
+
 Домен сервера: foodgram.freedynamicdns.net
 
 ---
