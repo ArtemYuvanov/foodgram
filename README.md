@@ -105,10 +105,6 @@ docker-compose  exec  backend  python  manage.py  createsuperuser
 
 Приложение будет доступно по адресу: http://localhost
 
-IP сервера: 51.250.109.26
-
-Домен сервера: foodgram.freedynamicdns.net
-
 ---
 
 ## Настройка окружения
@@ -234,6 +230,20 @@ DOCKER_USERNAME=your-dockerhub-username
 - Управление всеми рецептами
 - Управление пользователями
 - Управление тегами и ингредиентами
+
+---
+
+##  Демо-доступ
+
+Сайт проекта: https://foodgram.freedynamicdns.net
+
+IP сервера: 51.250.109.26
+
+###  Админ-панель
+https://foodgram.freedynamicdns.net/admin/
+
+Почта: p@mail.com 
+Пароль: admin1234  
 
 ---
 
