@@ -8,6 +8,7 @@ colorama==0.4.6
 cryptography==46.0.1
 defusedxml==0.7.1
 Django==4.2.24
+django-admin-autocomplete-filter==0.7.1
 django-cors-headers==4.9.0
 django-filter==25.1
 djangorestframework==3.16.1
